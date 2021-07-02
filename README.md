@@ -5,8 +5,9 @@ ESP32 SDK to integrate asvin libraries for over the air update through asvin pla
 
 ### Setup:
 1. Rename credentials_copy.h to credentials.h
-2. Update `customer_key`, `device_key`, WiFi `ssid`, and `password` in credentials.h 
-3. Then build the application and flash it to ESP32
+2. Update `customer_key`, `device_key` 
+3. Then build the application and flash it to ESP32 
+4. The application uses WiFiManager to connect to the WiFi. Please follow the instructions given in `https://github.com/tzapu/WiFiManager` to connect to WiFi
 
 ### API Flow
 1. Connect to WiFi
