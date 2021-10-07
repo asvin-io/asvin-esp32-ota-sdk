@@ -91,7 +91,7 @@ protected:
     bool runUpdate(Stream& in, uint32_t size, String md5, int command = U_FLASH);
 
     int _lastError;
-    bool _rebootOnUpdate = true;
+    bool _rebootOnUpdate = false;
 private:
     int _httpClientTimeout;
 
