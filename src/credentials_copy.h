@@ -1,13 +1,13 @@
 /**
- * The user shall provide the asvin credentials and WiFi credentials in this file
+ * credentials.h
+ * @author Rohit Bohara
+ *
+ * Copyright (c) 2019 asvin.io. All rights reserved.
  */
+#ifndef CREDENTIAL_H_
+#define CREDENTIAL_H_
 
-#include <Arduino.h>
+#define CUSTOMER_KEY "your-customer-key"
+#define DEVICE_KEY "your-device-key"
 
-// asvin credentials
-const String customer_key = "YOUR_CUSOTMER_KEY";
-const String device_key = "YOUR_DEVICE_KEY";
-
-// WiFi credentials
-//const char* ssid = "YOUR_SSID";
-//const char* password =  "YOUR_WIFI_PASSWORD";
+#endif
