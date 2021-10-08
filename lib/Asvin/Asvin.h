@@ -28,7 +28,7 @@ class Asvin
 public:
   Asvin(void);
   ~Asvin(void);
-  String registerDevice(const String mac, String currentFwVersion, String token, int& httpCode);
+  String registerDevice(const String name, const String mac, String currentFwVersion, String token, int& httpCode);
   String checkRollout(const String mac, const String currentFwVersion, String token, int& httpCode);
   String authLogin(String customer_key, String device_signature, long unsigned int timestamp, int& httpCode);
   String getBlockchainCID(const String firmwareID, String token, int& httpCode);

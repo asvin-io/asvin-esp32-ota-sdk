@@ -147,7 +147,7 @@ void loop() {
     }
     else {
       Serial.println("--Register Device");
-      String result = asvin.registerDevice(mac, firmware_version, authToken, httpCode);
+      String result = asvin.registerDevice("demo-device", mac, firmware_version, authToken, httpCode);
       char buff[result.length() + 1];
       result.toCharArray(buff, result.length() + 1);
       //Serial.print("Buffer --> ");

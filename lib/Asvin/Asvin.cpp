@@ -40,13 +40,14 @@ String Asvin::authLogin(String device_key, String device_signature, long unsigne
 }
 
 
-String Asvin::registerDevice(const String mac, String currentFwVersion, String token, int& httpCode) {
+String Asvin::registerDevice(const String name, const String mac, String currentFwVersion, String token, int& httpCode) {
   std::unique_ptr<WiFiClientSecure> client(new WiFiClientSecure);
   HTTPClient http;
   http.begin(*client, registerURL);
   http.addHeader(F("Content-Type"), "application/json");
   http.addHeader(F("x-access-token"), token);
   DynamicJsonDocument doc(500);
+  doc["name"] = name;
   doc["mac"] = mac;
   doc["firmware_version"] = currentFwVersion;
   String payload;
@@ -110,7 +111,7 @@ String Asvin::getBlockchainCID(const String firmwareID, String token, int& httpC
 }
 
 
-String Asvin::checkRolloutSuccess(const String mac, const String currentFwVersion, String token, const String rollout_id, int& httpCode) {
+String Asvin::checkRolloutSuccess(const String mac, const String currentFwVersion, String token, const String rolloutID, int& httpCode) {
   std::unique_ptr<WiFiClientSecure> client(new WiFiClientSecure);
   HTTPClient http;
   http.begin(*client, checkRolloutSuccessURL);
@@ -119,6 +120,7 @@ String Asvin::checkRolloutSuccess(const String mac, const String currentFwVersio
   DynamicJsonDocument doc(256);
   doc["mac"] = mac;
   doc["firmware_version"] = currentFwVersion;
+  doc["rollout_id"] = rolloutID;
   String payload;
   serializeJson(doc, payload);
   char buff[payload.length() + 1];
